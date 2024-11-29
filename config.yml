@@ -1,0 +1,22 @@
+kind: source
+spec:
+  name: "cq-source-concurrency-childtable-example"
+  registry: "local"
+  path: "./cq-source-concurrency-childtable-example"
+  version: "v1.0.0"
+  tables: ["*"]
+  destinations:
+    - "sqlite"
+  otel_endpoint: "localhost:4318"
+  otel_endpoint_insecure: true
+  spec:
+
+---
+kind: destination
+spec:
+  name: sqlite
+  path: "cloudquery/sqlite"
+  registry: cloudquery
+  version: "v2.7.7"
+  spec:
+    connection_string: ./db.sql
